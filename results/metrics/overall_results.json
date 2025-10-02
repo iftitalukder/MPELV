@@ -1,0 +1,76 @@
+{
+    "validation": {
+        "accuracy": 0.9385964912280702,
+        "weighted_f1": 0.9383533330901752,
+        "macro_f1": 0.9383533330901752
+    },
+    "test": {
+        "accuracy": 0.9210526315789473,
+        "weighted_f1": 0.9200029989503674,
+        "macro_f1": 0.9200029989503674,
+        "classification_report": {
+            "Normal": {
+                "precision": 0.95,
+                "recall": 1.0,
+                "f1-score": 0.9743589743589743,
+                "support": 19.0
+            },
+            "Fault 1": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 19.0
+            },
+            "Fault 2": {
+                "precision": 0.9473684210526315,
+                "recall": 0.9473684210526315,
+                "f1-score": 0.9473684210526315,
+                "support": 19.0
+            },
+            "Fault 3": {
+                "precision": 0.8235294117647058,
+                "recall": 0.7368421052631579,
+                "f1-score": 0.7777777777777778,
+                "support": 19.0
+            },
+            "Fault 4": {
+                "precision": 0.8,
+                "recall": 0.8421052631578947,
+                "f1-score": 0.8205128205128205,
+                "support": 19.0
+            },
+            "Fault 5": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 19.0
+            },
+            "accuracy": 0.9210526315789473,
+            "macro avg": {
+                "precision": 0.9201496388028896,
+                "recall": 0.9210526315789473,
+                "f1-score": 0.9200029989503674,
+                "support": 114.0
+            },
+            "weighted avg": {
+                "precision": 0.9201496388028896,
+                "recall": 0.9210526315789473,
+                "f1-score": 0.9200029989503674,
+                "support": 114.0
+            }
+        }
+    },
+    "efficiency": {
+        "training_time_sec": 0.01496,
+        "avg_inference_time_sec": 0.00011791,
+        "model_size_MB": 0.04898
+    },
+    "explainability_file": "results/metrics/feature_importances.json",
+    "plots": {
+        "global_importances": "results/figures/global_feature_importances.png",
+        "heatmap": "results/figures/feature_importances_heatmap.png",
+        "val_confusion": "results/figures/validation_confusion_matrix.png",
+        "test_confusion": "results/figures/test_confusion_matrix.png"
+    },
+    "model_file": "results/model/mpelvpp_model_final.npz"
+}
