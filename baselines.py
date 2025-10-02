@@ -11,10 +11,6 @@ from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score, classification_report
 
-
-# ===============================
-# Supporting Functions
-# ===============================
 def preprocess_data(df, vib_cols=['X', 'Y', 'Z']):
     df = df.copy()
     for col in vib_cols:
@@ -61,9 +57,6 @@ def create_non_overlapping_windows(df, W=200, class_col='class', vib_cols=['X', 
     return np.array(features), np.array(labels)
 
 
-# ===============================
-# Run Baselines
-# ===============================
 def run_baselines(file_path='balanced_dataset.csv', W=200, test_size=0.2, val_size=0.2):
     df = pd.read_csv(file_path)
     df = preprocess_data(df)
@@ -134,10 +127,6 @@ def run_baselines(file_path='balanced_dataset.csv', W=200, test_size=0.2, val_si
     print(f"\n✅ Baseline results saved to {baseline_json}")
     return results
 
-
-# ===============================
-# Run Entry
-# ===============================
 if __name__ == "__main__":
     try:
         run_baselines("balanced_dataset.csv", W=200)
