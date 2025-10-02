@@ -12,16 +12,12 @@ from sklearn.metrics import accuracy_score, classification_report, f1_score, con
 from scipy.stats import kurtosis, skew, entropy
 
 
-# ===============================
-# MPELV++ Accuracy-Optimized
-# ===============================
 class MPELVpp:
     def __init__(self, W=200, H=400, num_classes=6, reg_lambda=0.25):
         self.W = W
         self.H = H
         self.num_classes = num_classes
         self.reg_lambda = reg_lambda
-        # now 10 features → H hidden neurons
         self.hidden_weights = np.random.randn(10, H) * 0.5
         self.beta = None
         self.scaler = None
@@ -91,10 +87,6 @@ class MPELVpp:
             self.feature_importances_class[true_label] += contributions
         return contributions
 
-
-# ===============================
-# Supporting Functions
-# ===============================
 def preprocess_data(df, vib_cols=['X', 'Y', 'Z']):
     df = df.copy()
     for col in vib_cols:
@@ -129,9 +121,6 @@ def save_plot(fig, filename):
     pickle.dump(fig, open(f'results/figures/{filename}.fig', 'wb'))
 
 
-# ===============================
-# Evaluation + Plots
-# ===============================
 def evaluate_model(y_true, y_pred, y_proba, class_names, set_name="Test"):
     acc = accuracy_score(y_true, y_pred)
     f1_w = f1_score(y_true, y_pred, average='weighted')
@@ -153,10 +142,6 @@ def evaluate_model(y_true, y_pred, y_proba, class_names, set_name="Test"):
 
     return acc, f1_w, f1_m
 
-
-# ===============================
-# Pipeline
-# ===============================
 def run_mpelvpp_pipeline(file_path='balanced_dataset.csv', W=200, test_size=0.2, val_size=0.2):
     df = pd.read_csv(file_path)
     df = preprocess_data(df)
@@ -250,10 +235,6 @@ def run_mpelvpp_pipeline(file_path='balanced_dataset.csv', W=200, test_size=0.2,
 
     return model, test_acc, test_f1_w
 
-
-# ===============================
-# Run
-# ===============================
 if __name__ == "__main__":
     try:
         model, acc, f1 = run_mpelvpp_pipeline('balanced_dataset.csv', W=200)
